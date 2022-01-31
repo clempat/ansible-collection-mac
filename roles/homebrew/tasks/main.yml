@@ -128,7 +128,7 @@
         accept_external_apps: "{{ homebrew_cask_accept_external_apps }}"
         sudo_password: "{{ ansible_become_password | default(omit) }}"
       loop: "{{ homebrew_cask_apps }}"
-      ignore_errors: result.msg.startswith('Error: It seems there is already an App at')
+      ignore_errors: yes
       notify:
         - Clear homebrew cache
 
